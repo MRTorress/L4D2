@@ -17,6 +17,8 @@ const GROUPS = [
     items: ["Infectados Comuns", "Infectados Especiais", "Boomer", "Charger", "Hunter", "Jockey", "Smoker", "Spitter", "Tank", "Witch"] },
   { id: "conteudo", name: "Conteúdo do Jogo",
     items: ["Campanhas", "Itens", "Sons", "Scripts", "Interface", "Diversos", "Modelos", "Texturas"] },
+  { id: "itens", name: "itens",
+    items: ["Adrenalina", "Desfribilador", "Medkit", "Pills", "Outros"] },
   { id: "armas", name: "Armas",
     items: ["Pistolas", "Escopetas", "Submetralhadoras", "Rifles", "Franco-atiradores", "Corpo a Corpo", "Granadas", "Outras Armas"] }
 ];
