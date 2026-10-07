@@ -209,6 +209,10 @@ body {
   line-height: 1.7;
 }
 
+/* ---------- Botão fechar / fundo escuro (só no celular) ---------- */
+.close-btn { display: none; }
+.overlay { display: none; }
+
 /* ---------- Celular ---------- */
 @media (max-width: 760px) {
   .sidebar {
@@ -218,5 +222,25 @@ body {
   }
   .sidebar.show { left: 0; }
   .menu-btn { display: block; }
+  .close-btn {
+    display: block;
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--line);
+    color: var(--text);
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 14px;
+  }
+  .close-btn:hover { background: var(--danger); border-color: var(--danger); }
+  .overlay.show {
+    display: block;
+    position: fixed; inset: 0;
+    background: rgba(0, 0, 0, .55);
+    z-index: 30;
+  }
   .content { padding: 14px; }
 }

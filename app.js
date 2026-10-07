@@ -75,7 +75,7 @@ async function deleteProduct(id) {
 
 /* ---------- Menu lateral ---------- */
 function renderSidebar() {
-  $("#sidebar").innerHTML = GROUPS.map(g => `
+  $("#menu").innerHTML = GROUPS.map(g => `
     <div class="group ${openGroups.has(g.id) ? "open" : ""}">
       <button class="group-title" data-group="${g.id}">
         <span>${esc(g.name)}</span><span class="chev">▶</span>
@@ -105,7 +105,7 @@ $("#sidebar").addEventListener("click", (e) => {
   } else if (t.dataset.open) {
     const [g, i] = t.dataset.open.split("|");
     select(g, i);
-    $("#sidebar").classList.remove("show");
+    setMenu(false);
   }
 });
 
@@ -235,7 +235,14 @@ async function refresh() {
   } catch { setStatus("⚠ sem conexão"); }
 }
 
-$("#menuBtn").onclick = () => $("#sidebar").classList.toggle("show");
+// Abre/fecha o menu no celular
+function setMenu(open) {
+  $("#sidebar").classList.toggle("show", open);
+  $("#overlay").classList.toggle("show", open);
+}
+$("#menuBtn").onclick = () => setMenu(!$("#sidebar").classList.contains("show"));
+$("#closeBtn").onclick = () => setMenu(false);
+$("#overlay").onclick = () => setMenu(false);
 
 refresh();
 // Atualiza a lista periodicamente (só no modo online), sem atrapalhar quem está digitando
